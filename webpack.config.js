@@ -3,6 +3,11 @@ var webpack = require("webpack"),
   ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  resolve: {
+    alias: {
+      "jquery": path.join(__dirname, "bower_components/jquery/dist/jquery.js")
+    }
+  },
   entry: "./entry.js",
   output: {
     path: path.join(__dirname, "dist"),
@@ -15,6 +20,10 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery",
       "root.jQuery": "jquery"
+    }),
+    new ExtractTextPlugin("[name].css"),
+    new webpack.DefinePlugin({
+      CKEDITOR_BASEPATH_EAS: JSON.stringify('file:///'+path.join(__dirname, "app/vendor/static/ckeditor/"))
     })
   ],
   module: {
@@ -24,8 +33,5 @@ module.exports = {
         loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin("[name].css")
-  ]
+  }
 };
