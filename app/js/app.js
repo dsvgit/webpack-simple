@@ -1,2 +1,5 @@
 'use strict';
-console.log("Simple webpack project");
+
+var App = {};
+
+module.exports = App;
