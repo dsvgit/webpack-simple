@@ -9,16 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "extract-text-webpack-plugin": "^0.8.2"
+    "jquery": "^2.2.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "bower": "^1.6.5",
-    "browser-sync": "^2.10.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "html-loader": "^0.3.0",
-    "jquery": "^2.2.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13"
   }
