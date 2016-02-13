@@ -3,12 +3,6 @@ var webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  resolve: {
-    alias: {
-      'jquery': path.join(__dirname, 'bower_components/jquery/dist/jquery.js'),
-      'app': path.join(__dirname, 'app')
-    }
-  },
   entry: './entry.js',
   output: {
     path: path.join(__dirname, 'dist'),
@@ -17,10 +11,8 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      'root.jQuery': 'jquery'
+      '$': 'jquery',
+      
     }),
     new ExtractTextPlugin('[name].css')
   ],
