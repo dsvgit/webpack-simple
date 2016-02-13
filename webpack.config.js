@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       '$': 'jquery',
-
+      '_': 'underscore'
     }),
     new ExtractTextPlugin('[name].css')
   ],
@@ -21,6 +21,14 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
+      {
+        test: /\.(jsx|es6|js)$/i,
+        loader: 'babel-loader',
+        query: {
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0', 'react']
+        }
       },
       { test: /\.(cshtml|html)$/i, loader: 'html', query: { minimize: false } },
       {
