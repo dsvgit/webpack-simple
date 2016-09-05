@@ -1,18 +1,19 @@
 var webpack = require('webpack'),
     path = require('path'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './entry.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: 'dist/',
+    //publicPath: './dist/',
     filename: 'bundle.js'
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      '$': 'jquery',
-      '_': 'underscore'
+    new HtmlWebpackPlugin({
+      template: './index.ejs',
+      inject: true
     }),
     new ExtractTextPlugin('[name].css')
   ],
@@ -23,8 +24,9 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
-        test: /\.(jsx|es6|js)$/i,
+        test: /\.(js|jsx|es6)$/i,
         loader: 'babel-loader',
+        exclude: [/node_modules/],
         query: {
           plugins: ['transform-runtime'],
           presets: ['es2015', 'stage-0', 'react']
@@ -47,5 +49,15 @@ module.exports = {
       }
     ]
   },
-  devtool: "eval-source-map"
+  devtool: "eval-source-map",
+  devServer: {
+    contentBase: './dist/',
+    port:8081,
+    stats: {
+      modules: false,
+      cached: false,
+      colors: true,
+      chunk: false
+    }
+  }
 };

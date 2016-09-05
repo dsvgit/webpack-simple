@@ -8,12 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "backbone": "~1.1.2",
-    "backbone.marionette": "~1.7.4",
-    "jquery": "~2.1.4",
-    "underscore": "~1.8.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.2",
@@ -26,6 +21,9 @@
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "html-loader": "^0.3.0",
+    "html-webpack-plugin": "^2.22.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13"
   }

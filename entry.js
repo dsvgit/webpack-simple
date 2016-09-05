@@ -1,4 +1,7 @@
-'use strict';
-require('./app/css/site.css');
+//require('./app/css/site.css');
 
-require('./app/js/start');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app/js/start';
+
+ReactDOM.render(<App />, document.getElementById('wrap'));
