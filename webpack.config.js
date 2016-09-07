@@ -47,7 +47,25 @@ module.exports = {
           'file?name=assets/[name].[ext]'
         ]
       }
+    ],
+    noParse: [
+      /react\\dist\\react.js/,
+      /react-dom\\dist\\react-dom.js/,
+      /lodash/
     ]
+  },
+  resolve: {
+    alias: {
+      'react': __dirname + '/node_modules/react/dist/react.js',
+      'react-dom': __dirname + '/node_modules/react-dom/dist/react-dom.js'
+    }
+  },
+  stats: {
+    // Configure the console output
+    colors: true,
+    modules: true,
+    reasons: true,
+    profile: true
   },
   devtool: "eval-source-map",
   devServer: {
