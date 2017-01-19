@@ -28,6 +28,7 @@ module.exports = {
       {
         test: /\.(jsx|es6|js)$/i,
         loader: 'babel-loader',
+        exclude: /node_modules/,
         query: {
           plugins: ['transform-runtime'],
           presets: ['es2015', 'stage-0', 'react']
@@ -51,6 +52,7 @@ module.exports = {
     ]
   },
   devServer: {
+    inline: true,
     contentBase: './build',
     port: 8081,
     stats: {
@@ -65,5 +67,5 @@ module.exports = {
     tls: 'empty',
     dns: 'empty'
   },
-  devtool: "eval-source-map"
+  devtool: "source-map"
 };
