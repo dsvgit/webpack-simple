@@ -1,3 +1,9 @@
+import $ from 'jquery';
+
+import * as mathjaxHelper from './mathjaxHelper.js';
+import { renderMath } from './mathjaxHelper.js';
+
 import './index.css';
 
-console.log('start');
+mathjaxHelper.init();
+renderMath(document.getElementById('test'));
